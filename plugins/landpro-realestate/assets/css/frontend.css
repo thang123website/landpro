@@ -1860,3 +1860,9 @@ button.lp-totop, button.lp-totop:hover, button.lp-totop:focus { padding: 0 !impo
 .lp-lmap .lp-pin.lp-pin--dot { left: 0; top: 0; transform: none; width: 34px; height: 42px; padding: 0; background: none !important; background-image: none !important; border: 0; border-radius: 0; box-shadow: none; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .3)); }
 .lp-lmap .lp-pin.lp-pin--dot svg { display: block; }
 .leaflet-marker-icon:hover .lp-pin.lp-pin--dot { transform: none; }
+/* Nhãn bộ lọc đang chọn: chữ + dấu × căn giữa, cách đều (ghi đè display inline-block của nút theme Hello). */
+.lp-search .lp-search__chip, .lp-search .lp-search__chip:hover, .lp-search .lp-search__chip:focus { display: inline-flex !important; align-items: center !important; justify-content: center; gap: 6px !important; vertical-align: middle; }
+.lp-search .lp-search__chip > span { display: block; line-height: 1.4; }
+.lp-search .lp-search__chip > svg { display: block; flex: 0 0 auto; width: 12px; height: 12px; margin: 0; opacity: .75; transition: opacity .15s; }
+.lp-search .lp-search__chip:hover > svg { opacity: 1; }
+.lp-search .lp-search__chip--on { padding: 5px 10px 5px 12px !important; }
