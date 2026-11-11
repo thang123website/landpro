@@ -1,0 +1,18 @@
+.lp-fields {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+	gap: 14px 20px;
+	padding: 6px 0;
+}
+.lp-field label { display: block; margin-bottom: 4px; font-weight: 600; }
+.lp-field input[type="text"],
+.lp-field input[type="number"],
+.lp-field input[type="url"],
+.lp-field select,
+.lp-field textarea { width: 100%; max-width: 100%; }
+.lp-field--checkbox label { font-weight: 400; padding-top: 24px; }
+.lp-field--wide { grid-column: 1 / -1; }
+.lp-gallery-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 10px; }
+.lp-gallery-list li { position: relative; width: 90px; height: 90px; margin: 0; cursor: move; border: 1px solid #dcdcde; border-radius: 4px; overflow: hidden; background: #f6f7f7; }
+.lp-gallery-list img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.lp-gallery-remove { position: absolute; top: 2px; right: 2px; width: 22px; height: 22px; padding: 0; border: 0; border-radius: 50%; background: rgba(0,0,0,.65); color: #fff; line-height: 22px; cursor: pointer; }

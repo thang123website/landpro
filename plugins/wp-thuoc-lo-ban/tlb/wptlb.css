@@ -1,0 +1,402 @@
+.wp_thuocloban {
+	padding-top: 20px;
+	overflow: hidden;
+}
+.wp_thuocloban > #main > .container{
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+.wp_thuocloban * {
+	font-family: Arial;
+	font-size: 12px;
+	line-height: 1.4em;
+}
+
+.wp_thuocloban *,
+.wp_thuocloban *:after,
+.wp_thuocloban *:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	text-rendering: optimizeLegibility;
+	outline: 0;
+}
+
+.wp_thuocloban *:focus,
+.wp_thuocloban *:after:focus,
+.wp_thuocloban *:before:focus {
+	outline: 0;
+}
+
+.wp_thuocloban *:after,
+.wp_thuocloban *:before {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
+
+.wp_thuocloban .box_huongdan {
+	background: #fff6d3;
+	border: 1px solid #f7e7a9;
+	padding: 10px;
+	margin-top: 0px;
+}
+
+.wp_thuocloban .tdbox_hd {
+	border-bottom: 1px solid #f7e7a9;
+	font-family: arial;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 1.2;
+	padding-bottom: 10px;
+}
+
+.wp_thuocloban .noidung_boxhd {
+	color: #333;
+	font-size: 13px;
+	/* line-height: 24px; */
+	margin-top: 10px;
+	font-family: arial;
+}
+
+.wp_thuocloban .noidung_boxhd p {
+	margin: 12px 0;
+}
+
+.wp_thuocloban .tdbox_hd {
+	color: #d40001
+}
+
+.wp_thuocloban .copyright {
+	margin: 30px 0 20px;
+	text-align: center;
+	clear: both;
+}
+
+.wp_thuocloban .wrapper {
+	width: 99.5% !important;
+}
+
+.wp_thuocloban #loban-thelist {
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+
+.wp_thuocloban #loban-wrapper {
+	position: absolute;
+	z-index: 1;
+	top: 0px;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 402px;
+	background: #fff;
+	overflow: auto;
+}
+
+.wp_thuocloban #lobanOuter {
+	width: 100%;
+	position: relative;
+}
+
+.wp_thuocloban #loban-scroller {
+	width: 10100px;
+	height: 100%;
+	float: left;
+	padding: 0;
+}
+
+.wp_thuocloban #loban-scroller li {
+	display: block;
+	float: left;
+	width: 10000px;
+	height: 100%;
+}
+
+.wp_thuocloban #loban-scroller li img {
+	display: block;
+	margin-top: 31px;
+}
+
+.wp_thuocloban #pullRight, .wp_thuocloban #pullLeft {
+	display: block;
+	width: 50px;
+	float: left;
+	height: 100%;
+}
+
+.wp_thuocloban #sodoLoban {
+	display: none;
+	position: absolute;
+	z-index: 2;
+	top: 5px;
+	left: 400px;
+	text-align: center;
+	width: 100px;
+	font-size: 16px;
+	font-weight: bold;
+	color: red;
+	/*border:1px solid red;*/
+}
+
+.wp_thuocloban #container-sodo {
+	position: absolute;
+	z-index: 2;
+	top: -20px;
+	left: 212px;
+	width: 280px;
+}
+
+.wp_thuocloban #sodo {
+	display: inline-block;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+	color: red;
+	border: 2px solid #ffa500;
+	padding: 2px;
+	height: 25px;
+	width: 60px;
+}
+
+.wp_thuocloban #thanhdo {
+	width: 2px;
+	height: 384px;
+	background: #ffa500;
+	position: absolute;
+	z-index: 2;
+	top: 10px;
+	left: 240px;
+}
+
+.wp_thuocloban .titleLoban {
+
+}
+
+.wp_thuocloban #abc {
+	position: absolute;
+	top: -20px;
+	display: none;
+}
+
+.wp_thuocloban .loban-note {
+	position: absolute;
+	z-index: 2;
+	top: 0px;
+	right: 0;
+	padding-left: 18px;
+	height: 20px;
+	margin: 12px 0;
+}
+
+.wp_thuocloban .loban-t {
+	position: absolute;
+	z-index: 2;
+	left: 0;
+	margin: 12px 0;
+}
+
+.wp_thuocloban .loban-522 {
+	top: 2px;
+}
+
+.wp_thuocloban .loban-429 {
+	top: 135px;
+}
+
+.wp_thuocloban .loban-388 {
+	top: 265px;
+}
+
+.wp_thuocloban .loban-touch-left {
+	position: absolute;
+	left: 0px;
+	top: 31px;
+	height: 358px;
+	width: 50px;
+	z-index: 2;
+}
+
+.wp_thuocloban .loban-touch-right {
+	position: absolute;
+	right: 0px;
+	top: 31px;
+	height: 358px;
+	width: 50px;
+	z-index: 2;
+}
+
+/* thuoc lo ban */
+.wp_thuocloban #loban {
+	width: 100%
+}
+
+.wp_thuocloban .loban-h {
+	border: 0px;
+	width: 30%;
+	float: left;
+	border-top: 1px solid gray;
+}
+
+.wp_thuocloban .khoan-h {
+	border: 0px;
+	width: 100%;
+	float: left;
+}
+
+.wp_thuocloban .cung-h {
+	border: 0px;
+	margin: 0;
+	float: left;
+	width: 50%;
+}
+
+.wp_thuocloban .loban-d {
+	border: 0px;
+	width: 70%;
+	border-top: 1px solid gray;
+	float: left;
+}
+
+@media only screen and (max-width: 650px) {
+	.wp_thuocloban .tenkhoan {
+		width: 40% !important;
+	}
+
+	.wp_thuocloban .cung-h {
+		width: 60% !important;
+	}
+
+	.wp_thuocloban .loban-t strong {
+		display: none;
+	}
+
+	.wp_thuocloban .loban-d {
+		width: 60%;
+	}
+
+	.wp_thuocloban .loban-h {
+		width: 40%;
+	}
+
+	.wp_thuocloban .sodo1, .wp_thuocloban .sodo2, .wp_thuocloban .sodo3, .wp_thuocloban .sodo4, .wp_thuocloban .sodo5, .wp_thuocloban .sodo6, .wp_thuocloban .sodo7, .wp_thuocloban .sodo8 {
+		width: 25% !important;
+	}
+}
+
+.wp_thuocloban .khoan {
+	border: 0px;
+}
+
+.wp_thuocloban .tenkhoan {
+	border: 0px;
+	border-left: 1px solid gray;
+	border-bottom: 1px solid gray;
+	width: 50%;
+	float: left;
+	font-size: 13px;
+	text-transform: uppercase;
+	height: 115px;
+	text-align: center;
+	font-weight: bold;
+	display: table;
+}
+
+.wp_thuocloban .tenkhoan span {
+	display: table-cell;
+	vertical-align: middle;
+	line-height: normal;
+	line-height: 25px;
+}
+
+.wp_thuocloban .cung {
+	border: 0px;
+	border-right: 1px solid gray;
+	margin: 0;
+	float: left;
+	width: 100%;
+	overflow: hidden;
+}
+
+.wp_thuocloban .tencung {
+	border: 0px;
+	border-left: 1px solid gray;
+	border-bottom: 1px solid gray;
+	margin: 0;
+	width: 100%;
+	height: 23px;
+	float: left;
+	font-size: 12px;
+	padding-left: 5px;
+	font-weight: bold;
+	overflow: hidden;
+	line-height: 22px;
+}
+
+.wp_thuocloban .sodo {
+	border: 0px;
+	margin: 0;
+	float: left;
+	height: 23px;
+	width: 100%;
+}
+
+.wp_thuocloban .tot {
+	background: #fff;
+	color: #ED1C24;
+}
+
+.wp_thuocloban .trungtinh {
+	background: #eee;
+}
+
+.wp_thuocloban .xau {
+	background: #f3f3f3;
+}
+
+.wp_thuocloban .sodo1, .wp_thuocloban .sodo2, .wp_thuocloban .sodo3, .wp_thuocloban .sodo4, .wp_thuocloban .sodo5, .wp_thuocloban .sodo6, .wp_thuocloban .sodo7, .wp_thuocloban .sodo8 {
+	border: 0px;
+	border-left: 1px solid gray;
+	border-bottom: 1px solid gray;
+	margin: 0;
+	width: 12.5%;
+	height: 23px;
+	line-height: 22px;
+	float: left;
+	text-align: center;
+	font-size: 12px;
+	/* padding-top: 4px; */
+}
+
+.wp_thuocloban .clear:before,
+.wp_thuocloban .clear:after {
+	content: ' ';
+	display: table;
+}
+
+.wp_thuocloban .clear:after {
+	clear: both;
+}
+
+.wp_thuocloban .clear,
+.wp_thuocloban .clear-after:after,
+.wp_thuocloban .clear-before:before,
+.wp_thuocloban .row:after {
+	*zoom: 1;
+}
+/* Điện thoại: khung nhập số đo rộng cố định 280px bị tràn màn hình. */
+@media (max-width: 549px) {
+	.wp_thuocloban #lobanOuter #container-sodo {
+		width: auto;
+		white-space: nowrap;
+	}
+}
+
+/* Ảnh thước dài 10000px: không cho CSS chung (img max-width:100%) co ảnh lại. */
+.wp_thuocloban #loban-scroller li img { max-width: none !important; width: 10000px !important; height: 100px !important; }
+
+/* Nằm gọn trong thẻ trắng: bỏ nền/viền riêng, thước cuộn ngang trong khung. */
+.lp-tool-card .wp_thuocloban { background: transparent; }
+.lp-tool-card .wp_thuocloban #main, .lp-tool-card .wp_thuocloban .container, .lp-tool-card .wp_thuocloban .content { max-width: 100%; width: 100%; padding: 0; margin: 0; background: transparent; }
+.lp-tool-card .wp_thuocloban #lobanOuter { overflow: hidden; }
+.lp-tool-card .wp_thuocloban #lobanOuter { overflow: visible; margin-top: 28px; }

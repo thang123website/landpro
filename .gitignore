@@ -1,0 +1,22 @@
+# Chỉ quản lý mã tự viết: theme LandPro + 3 plugin. Mọi thứ khác (WordPress core,
+# plugin bên thứ ba, ảnh upload, ngôn ngữ, cache) không đưa lên git.
+/*
+!/.gitignore
+!/README.md
+!/themes/
+/themes/*
+!/themes/landpro/
+!/plugins/
+/plugins/*
+!/plugins/landpro-realestate/
+!/plugins/wp-phong-thuy/
+!/plugins/wp-thuoc-lo-ban/
+
+# Rác hệ thống / log
+.DS_Store
+Thumbs.db
+*.log
+*.bak
+*.sql
+*.zip
+node_modules/

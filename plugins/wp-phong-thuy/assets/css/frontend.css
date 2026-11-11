@@ -1,0 +1,474 @@
+.wp_phongthuy_popup {
+
+	
+
+	font-size: var(--lp-fs-sm);
+
+	color: #000;
+
+}
+
+
+
+.wp_phongthuy_popup * {
+
+	box-sizing: border-box;
+
+
+
+}
+
+
+
+.wp_phongthuy_popup .color_green {
+
+	color: #e73939;
+
+}
+
+
+
+.wp_phongthuy_popup h1 {
+
+	
+
+	font-size: var(--lp-fs-h3);
+
+	font-weight: 700;
+
+	color: #e73939;
+
+}
+
+
+
+.wp_phongthuy_popup ul {
+
+	margin-left: 20px;
+
+}
+
+
+
+.wp_phongthuy_popup table {
+
+	max-width: 460px;
+
+	margin: 0 auto;
+
+}
+
+
+
+.wp_phongthuy_popup table tr td {
+
+	padding: 0 4px;
+
+}
+
+
+
+.wp_phongthuy_popup img {
+
+	display: inline-block;
+
+	max-width: 460px;
+
+	width: 100%;
+
+}
+
+
+
+.wp_phongthuy_popup > p:last-child {
+
+	margin-bottom: 0;
+
+}
+
+
+
+.wp_phongthuy_popup .boldLabel {
+
+	font-weight: 700;
+
+}
+
+
+
+/* form */
+
+.wp_phongthuy_form {
+
+
+
+	display: block;
+
+	position: relative;
+
+	width: 100%;
+
+	margin: 0px;
+
+	font-size: var(--lp-fs-sm);
+
+}
+
+
+
+.wp_phongthuy_form * {
+
+	box-sizing: border-box;
+
+
+
+}
+.wp_phongthuy_form .form-group .btn {
+    color: #fff;
+    margin: 0;
+    font-weight: 500;
+    font-size: var(--lp-fs-sm);
+    line-height: 20px;
+    min-height: 20px;
+    height: 40px;
+    min-width: 140px;
+}
+.wp_phongthuy_form table{
+	margin-top:0px !important;
+margin-bottom: 0.5em !important;
+}
+.wp_phongthuy_form table td{
+	padding-top: 0px !important;
+	padding-bottom:0px !important;
+	border-bottom: none !important;
+}
+.wp_phongthuy_form .form-group input, .wp_phongthuy_form .form-group select{
+    width: 100%;
+    margin-top: 0px !important;
+    height: 36px;
+    line-height: 36px;
+    border-color: #818181;
+}
+
+.wp_phongthuy_form:before {
+
+	content: '';
+
+	display: block;
+
+	width: 100%;
+
+	height: 100%;
+
+	background-color: #ffffff;
+
+	background-image: url('../images/loader.gif');
+
+	background-repeat: no-repeat;
+
+	background-position: center;
+
+	position: absolute;
+
+	top: 0;
+
+	left: 0;
+
+	opacity: 0;
+
+	visibility: hidden;
+
+}
+
+
+
+.wp_phongthuy_form.loading:before {
+
+	opacity: .7;
+
+	visibility: visible;
+
+}
+
+
+
+.wp_phongthuy_form .form-title {
+
+}
+
+
+
+.wp_phongthuy_form .form-title span {
+
+	padding: 5px 0px;
+
+	display: inline-block;
+
+	position: relative;
+
+	text-transform: uppercase;
+
+	font-weight: 600;
+
+}
+
+
+
+.wp_phongthuy_form .form-title span:after {
+
+
+
+}
+
+
+
+.wp_phongthuy_form .form-line {
+
+	display: block;
+
+	margin-bottom: 20px;
+
+}
+
+
+
+.wp_phongthuy_form .form-line:last-child {
+
+	margin-bottom: 0;
+
+}
+
+
+
+.wp_phongthuy_form .form-line .label {
+
+	display: block;
+
+}
+
+
+
+.wp_phongthuy_form .form-line select {
+
+	display: block;
+
+	width: 100%;
+
+	height: 40px;
+
+	line-height: 40px;
+
+	padding: 0px 20px;
+
+	border: 1px solid #aaa;
+
+	border-radius: 3px;
+
+	-webkit-appearance: none;
+
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFCAYAAAB8ZH1oAAAABGdBTUEAALGPC/xhBQAAAHBJREFUCB1djjsOgDAMQ5NerXdBYmRADCAmBhgZGBDcpO3N+sFBRAIiNXbsN5SdcwMzj0SUSikJGsU/L6ITfzAWhRD6nPMk/j8AT2ttdYNSAu4Az28Q0A6ohhajBYLFGNPqjXJTSLOP4s+N9379hDgux4UotvsoUK0AAAAASUVORK5CYII=);
+
+	background-repeat: no-repeat;
+
+	background-position: calc(100% - 20px) 50%;
+
+	outline: none;
+
+	box-shadow: none;
+
+	font-size: var(--lp-fs-sm);
+
+}
+
+
+
+.wp_phongthuy_form .form-line input[type="submit"], .wp_phongthuy_form .form-line input[type="button"] {
+
+	display: inline-block;
+
+	height: 40px;
+
+	line-height: 40px;
+
+	padding: 0px 20px;
+
+	background-color: #e73939;
+
+	color: #ffffff;
+
+	border: none;
+
+	outline: none;
+
+	box-shadow: none;
+
+	border-radius: 3px;
+
+	font-weight: 700;
+
+	font-size: var(--lp-fs-sm);
+
+}
+
+
+
+.wp_phongthuy_form .form-line input[type="submit"]:hover, .wp_phongthuy_form .form-line input[type="button"]:hover {
+
+	background-color: #222222;
+
+}
+
+
+
+.wp_phongthuy_form .form-line table {
+
+	margin: 0;
+
+	border: none;
+
+}
+
+
+
+.wp_phongthuy_form .form-line table tr {
+
+	border: none;
+
+}
+
+
+
+.wp_phongthuy_form .form-line table tr td:first-child {
+
+	padding: 0 5px 0 0;
+
+	border: none;
+
+}
+
+
+
+.wp_phongthuy_form .form-line table tr td:last-child {
+
+	padding: 0 0 0 5px;
+
+	border: none;
+
+}
+
+
+
+
+/* ===== Giao diện form theo markup thực tế (không phụ thuộc Flatsome) ===== */
+.wp_phongthuy_form .form-group { margin: 0 0 14px; }
+.wp_phongthuy_form .control-label { display: block; margin: 0 0 6px; font-weight: 600; font-size: var(--lp-fs-sm); color: #1f2937; }
+.wp_phongthuy_form table,
+.wp_phongthuy_form table tr,
+.wp_phongthuy_form table td { margin: 0; padding: 0; border: 0 !important; background: transparent !important; }
+.wp_phongthuy_form table { border-collapse: separate; border-spacing: 0; }
+.wp_phongthuy_form table td + td { padding-left: 10px !important; }
+.wp_phongthuy_form table td[style*="padding-right"] { padding-right: 0 !important; }
+.wp_phongthuy_form select {
+	width: 100%;
+	min-height: 46px;
+	padding: 10px 12px;
+	border: 1px solid #e5e7eb;
+	border-radius: 8px;
+	background-color: #fff;
+	color: #1f2937;
+	font-size: var(--lp-fs-base);
+}
+.wp_phongthuy_form select:focus { border-color: #c02038; outline: 2px solid rgba(192, 32, 56, .15); }
+.wp_phongthuy_form button.xemketqua,
+.wp_phongthuy_form .xemketqua.btn.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 160px;
+	min-height: 46px;
+	margin-top: 4px;
+	padding: 10px 24px;
+	border: 1px solid #c02038;
+	border-radius: 8px;
+	background: #c02038;
+	color: #fff;
+	font-size: var(--lp-fs-base);
+	font-weight: 700;
+	cursor: pointer;
+}
+.wp_phongthuy_form button.xemketqua:hover,
+.wp_phongthuy_form button.xemketqua:focus-visible { background: #9e1a2e; border-color: #9e1a2e; color: #fff; }
+
+/* Bố cục thẻ: nhãn, ô chọn, nút đồng bộ với form tìm kiếm. */
+.lp-tool-card .elementor-widget-shortcode { margin-top: auto; }
+.lp-tool-head .elementor-icon-box-title { font-size: var(--lp-fs-xl, 20px) !important; margin-top: 2px; }
+.wp_phongthuy_form .form-group { margin-bottom: 16px; }
+.wp_phongthuy_form .control-label { font-size: var(--lp-fs-sm, 14px); font-weight: 500; color: #374151; }
+.wp_phongthuy_form select {
+	height: 48px; padding: 0 40px 0 14px; border: 1px solid #d0d5dd; border-radius: 8px;
+	-webkit-appearance: none; appearance: none;
+	background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat calc(100% - 12px) 50% / 16px;
+	font-size: var(--lp-fs-base, 16px); color: #111827; cursor: pointer;
+}
+.wp_phongthuy_form select:hover { border-color: #9ca3af; }
+.wp_phongthuy_form select:focus { border-color: #c02038; outline: 0; box-shadow: 0 0 0 3px rgba(192, 32, 56, .12); }
+.wp_phongthuy_form button.xemketqua,
+.wp_phongthuy_form .xemketqua.btn.button { display: flex; width: 100%; height: 48px; margin-top: 8px; border-radius: 8px; font-weight: 500 !important; }
+.wp_phongthuy_form [style*="text-align: center"], .wp_phongthuy_form [style*="text-align:center"] { text-align: left !important; }
+
+/* =================================================================
+   Hộp kết quả (Featherlight) theo giao diện LandPro.
+   ================================================================= */
+.featherlight { background: rgba(10, 10, 12, .72) !important; backdrop-filter: blur(2px); z-index: 100000 !important; }
+.featherlight .featherlight-content {
+	width: min(860px, calc(100vw - 32px));
+	max-height: calc(100vh - 64px);
+	margin: 32px auto 0;
+	padding: 0 !important;
+	border: 0;
+	border-radius: 16px;
+	box-shadow: 0 30px 80px rgba(0, 0, 0, .35);
+	overflow: auto;
+	overscroll-behavior: contain;
+	animation: lpModalIn .25s ease-out;
+}
+@keyframes lpModalIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .featherlight .featherlight-content { animation: none; } }
+.featherlight .featherlight-close-icon {
+	position: sticky !important; float: right; top: 14px !important; right: 14px !important;
+	width: 40px; height: 40px; margin: 14px 14px -54px 0;
+	border-radius: 50%; background: #f3f4f6 !important; color: #111827 !important;
+	font-size: 22px; line-height: 40px; text-align: center; z-index: 2; cursor: pointer;
+	transition: background-color .2s, color .2s;
+}
+.featherlight .featherlight-close-icon:hover, .featherlight .featherlight-close-icon:focus-visible { background: #c02038 !important; color: #fff !important; }
+
+.wp_phongthuy_popup { padding: 32px 36px 36px; font-size: var(--lp-fs-base, 16px); line-height: 1.7; color: #374151; }
+@media (max-width: 600px) { .wp_phongthuy_popup { padding: 24px 18px; } }
+.wp_phongthuy_popup h1, .wp_phongthuy_popup h2, .wp_phongthuy_popup h3 {
+	margin: 0 56px 18px 0; padding-bottom: 14px; border-bottom: 1px solid #eef0f3;
+	color: #111827 !important; font-size: var(--lp-fs-h3, 24px) !important; line-height: 1.3;
+}
+.wp_phongthuy_popup p { margin: 0 0 12px; }
+.wp_phongthuy_popup strong, .wp_phongthuy_popup b { color: #111827; font-weight: 600; }
+.wp_phongthuy_popup img { display: block; max-width: min(100%, 420px); height: auto; margin: 12px auto 20px; border-radius: 12px; }
+/* Bảng bát quái: tông LandPro thay cho xanh dương. */
+.wp_phongthuy_popup table { margin: 16px auto 24px !important; border-collapse: separate !important; border-spacing: 4px; border: 0 !important; background: #f4f5f7; border-radius: 12px; padding: 4px; }
+.wp_phongthuy_popup table td, .wp_phongthuy_popup table th {
+	padding: 10px 14px !important; border: 0 !important; border-radius: 8px;
+	background: #fff !important; color: #374151 !important; font-size: var(--lp-fs-sm, 14px); text-align: center;
+}
+.wp_phongthuy_popup table td[bgcolor], .wp_phongthuy_popup table td[style*="background"],
+.wp_phongthuy_popup table th { background: #1f2937 !important; color: #fff !important; font-weight: 600; }
+.wp_phongthuy_popup table td[style*="background"][style*="#0"], .wp_phongthuy_popup table td.active,
+.wp_phongthuy_popup table td[bgcolor] b { color: #fff !important; }
+
+/* Bảng bát quái: ô cung trắng, ô hướng xám nhạt chữ đậm, cung mệnh (ô giữa) đỏ thương hiệu. */
+.wp_phongthuy_popup table { background: #f4f5f7 !important; }
+.wp_phongthuy_popup table td,
+.wp_phongthuy_popup table td[style*="background"] { background: #fff !important; color: #374151 !important; font-weight: 500; }
+.wp_phongthuy_popup table td.batquai1,
+.wp_phongthuy_popup table tr:first-child > td,
+.wp_phongthuy_popup table tr:last-child > td { background: #e5e7eb !important; color: #111827 !important; font-weight: 700; vertical-align: middle; }
+.wp_phongthuy_popup table tr:nth-child(3) > td:nth-child(2) { background: #c02038 !important; color: #fff !important; font-weight: 700; }
+.wp_phongthuy_popup table tr:first-child > td *, .wp_phongthuy_popup table tr:last-child > td *, .wp_phongthuy_popup table td.batquai1 * { color: #111827 !important; }

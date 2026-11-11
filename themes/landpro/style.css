@@ -1,0 +1,734 @@
+/*
+Theme Name:   LandPro
+Description:  Child theme của Hello Elementor cho website bất động sản LandPro. Chứa CSS toàn site; nội dung trang chỉnh bằng Elementor, dữ liệu nhà đất do plugin LandPro Real Estate quản lý.
+Template:     hello-elementor
+Version:      1.0.0
+Text Domain:  landpro
+*/
+
+:root {
+	--lp-primary: #c02038;
+	--lp-dark: #111111;
+	--lp-border: #e5e7eb;
+}
+
+body {
+	background: #fff;
+	color: #2b2f36;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+a { color: var(--lp-primary); }
+a:hover { color: #9e1a2e; }
+img { height: auto; }
+
+:focus-visible { outline: 2px solid var(--lp-primary); outline-offset: 2px; }
+
+/* ---------------------------------------------------------------- Header dính khi cuộn */
+.ehf-header #masthead {
+	position: sticky;
+	top: 0;
+	z-index: 999;
+}
+.admin-bar.ehf-header #masthead { top: 32px; }
+@media (max-width: 782px) {
+	.admin-bar.ehf-header #masthead { top: 0; }
+}
+.lp-site-header { transition: box-shadow .2s; }
+
+/* Menu: chữ không xuống dòng, menu con gọn gàng */
+.hfe-nav-menu .menu-item a.hfe-menu-item { white-space: nowrap; }
+.hfe-nav-menu .sub-menu {
+	border-radius: 10px;
+	box-shadow: 0 12px 32px rgba(15, 31, 61, .14);
+	overflow: hidden;
+}
+
+/* ---------------------------------------------------------------- Fluent Forms */
+.fluentform .ff-el-group { margin-bottom: 14px; }
+.fluentform .ff-el-input--label label { font-weight: 600; font-size: var(--lp-fs-sm); }
+.fluentform .ff-el-form-control {
+	min-height: 46px;
+	border: 1px solid var(--lp-border);
+	border-radius: 8px;
+	font-size: var(--lp-fs-base);
+}
+.fluentform textarea.ff-el-form-control { min-height: 96px; }
+.fluentform .ff-el-form-control:focus { border-color: var(--lp-primary); box-shadow: 0 0 0 3px rgba(192, 32, 56, .12); }
+.fluentform .ff-btn-submit {
+	min-height: 48px;
+	width: 100%;
+	border-radius: 8px !important;
+	font-weight: 700 !important;
+	font-size: var(--lp-fs-base) !important;
+}
+.ff-message-success {
+	border-radius: 10px;
+	border-left: 4px solid #15803d;
+	background: #f0fdf4;
+}
+
+/* Widget menu trong header: chiếm phần còn lại cạnh logo và được phép co lại (mặc định rộng 100% + không co gây tràn màn hình). */
+.lp-site-header .elementor-widget-navigation-menu {
+	flex: 1 1 0% !important;
+	width: auto !important;
+	min-width: 0;
+}
+/* Nút ☰ menu luôn nằm sát phải trên điện thoại / máy tính bảng */
+.lp-site-header .hfe-nav-menu__toggle { margin-left: auto; }
+
+/* Menu desktop: mục menu giãn hết chiều cao thanh header để vạch gạch chân nằm sát mép dưới.
+   Dùng flex kéo giãn từng lớp (height:% không tính được vì thanh header chỉ có min-height). */
+@media (min-width: 1025px) {
+	.lp-site-header,
+	.lp-site-header > .e-con-inner { align-items: stretch !important; }
+	.lp-site-header .elementor-widget-site-logo,
+	.lp-site-header .elementor-widget-button { align-self: center; }
+	.lp-site-header .elementor-widget-navigation-menu { display: flex; align-self: stretch !important; height: auto !important; }
+	.lp-site-header .elementor-widget-navigation-menu > .elementor-widget-container,
+	.lp-site-header .elementor-widget-navigation-menu .hfe-nav-menu.hfe-layout-horizontal,
+	.lp-site-header .hfe-nav-menu__layout-horizontal { display: flex; flex: 1 1 auto; align-items: stretch; }
+	.lp-site-header .hfe-nav-menu__layout-horizontal > ul.hfe-nav-menu { display: flex; align-items: stretch; height: auto; }
+	.lp-site-header .hfe-nav-menu__layout-horizontal > ul > li { display: flex; align-items: stretch; height: auto; }
+	.lp-site-header .hfe-nav-menu__layout-horizontal > ul > li > .hfe-has-submenu-container { display: flex; align-items: stretch; }
+	.lp-site-header .hfe-nav-menu__layout-horizontal > ul > li a.hfe-menu-item { display: flex; align-items: center; height: auto; }
+	.lp-site-header .hfe-nav-menu a.hfe-menu-item::after { bottom: 0; }
+}
+
+/* ---------------------------------------------------------------- Banner trang con dùng chung */
+.lp-page-header {
+	position: relative;
+	display: flex;
+	align-items: center;
+	min-height: 340px;
+	background: #111 center / cover no-repeat;
+	color: #fff;
+	isolation: isolate;
+}
+.lp-page-header::before {
+	content: "";
+	position: absolute; inset: 0; z-index: -1;
+	background: rgba(0, 0, 0, .55);
+}
+.lp-page-header__inner {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 48px 16px;
+	box-sizing: border-box;
+}
+.lp-page-header__title {
+	margin: 8px 0 0;
+	color: #fff;
+	font-size: var(--lp-fs-h1);
+	font-weight: 700;
+	line-height: 1.2;
+}
+.lp-page-header__desc { margin-top: 10px; max-width: 720px; color: #e2e8f0; }
+@media (max-width: 767px) { .lp-page-header { min-height: 220px; } .lp-page-header__inner { padding: 32px 16px; } }
+
+/* Breadcrumb dùng chung */
+.lp-breadcrumb { margin: 0; font-size: var(--lp-fs-sm); line-height: 1.5; color: #6b7280; overflow-wrap: anywhere; }
+.lp-breadcrumb a { color: inherit; text-decoration: none; }
+.lp-breadcrumb a:hover { color: #c02038; text-decoration: underline; }
+.lp-breadcrumb .breadcrumb_last { color: #1f2937; font-weight: 500; }
+.lp-page-header .lp-breadcrumb,
+.lp-breadcrumb--light { color: rgba(255, 255, 255, .85); }
+.lp-page-header .lp-breadcrumb a:hover,
+.lp-breadcrumb--light a:hover { color: #fff; }
+.lp-page-header .lp-breadcrumb .breadcrumb_last,
+.lp-breadcrumb--light .breadcrumb_last { color: #fff; }
+
+/* Nội dung dưới banner */
+.lp-blog, .lp-article, .lp-404 { max-width: 1200px; margin: 0 auto; padding: 40px 16px 64px; }
+.lp-article { max-width: 820px; }
+.lp-article__meta { color: #6b7280; font-size: var(--lp-fs-sm); }
+.lp-article__thumb { margin: 0 0 24px; }
+.lp-article__thumb img { width: 100%; border-radius: 10px; }
+.lp-article .page-content { font-size: var(--lp-fs-lg); line-height: 1.8; }
+.lp-404__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+
+.lp-blog .page-content { display: grid; grid-template-columns: 1fr; gap: 24px; }
+@media (min-width: 700px) { .lp-blog .page-content { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1025px) { .lp-blog .page-content { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.lp-post-card { display: flex; flex-direction: column; overflow: hidden; margin: 0; border: 1px solid #e6e8ec; border-radius: 10px; background: #fff; transition: border-color .2s, box-shadow .2s; }
+.lp-post-card:hover { border-color: #cfd4dc; box-shadow: 0 6px 18px rgba(15, 31, 61, .08); }
+.lp-post-card__media { display: block; aspect-ratio: 16 / 10; overflow: hidden; }
+.lp-post-card__media img { width: 100%; height: 100%; object-fit: cover; }
+.lp-post-card__body { display: flex; flex-direction: column; gap: 6px; padding: 16px; }
+.lp-post-card__date { color: #6b7280; font-size: var(--lp-fs-xs); }
+.lp-post-card__title { margin: 0; font-size: var(--lp-fs-lg); line-height: 1.4; }
+.lp-post-card__title a { color: #1f2937; text-decoration: none; }
+.lp-post-card__title a:hover { color: #c02038; }
+.lp-post-card__excerpt { margin: 0; color: #6b7280; font-size: var(--lp-fs-base); }
+.lp-blog-pagination { margin-top: 32px; }
+.lp-blog-pagination .nav-links { display: flex; justify-content: center; gap: 6px; }
+.lp-blog-pagination .page-numbers { display: inline-flex; align-items: center; justify-content: center; min-width: 42px; height: 42px; border: 1px solid #e5e7eb; border-radius: 8px; color: #1f2937; text-decoration: none; font-weight: 600; }
+.lp-blog-pagination .current { background: #c02038; border-color: #c02038; color: #fff; }
+
+/* Mục chuyển ngôn ngữ trong menu (Polylang): chỉ cờ, không gạch chân. */
+.lp-site-header .hfe-nav-menu .lang-item a.hfe-menu-item::after { display: none; }
+.lp-site-header .hfe-nav-menu .lang-item img { width: 22px !important; height: 15px !important; object-fit: cover; border-radius: 2px; }
+
+/* Cờ ngôn ngữ: máy tính/máy tính bảng dùng cờ ở thanh trên cùng; điện thoại (thanh trên bị ẩn) dùng cờ trong menu. */
+@media (min-width: 1025px) {
+	.lp-site-header .hfe-nav-menu .lang-item { display: none !important; }
+}
+/* Mobile/tablet: chọn ngôn ngữ trong menu (cờ + tên); ẩn cờ ở thanh trên để không trùng. */
+@media (max-width: 1024px) {
+	.lp-topbar .lp-langs { display: none; }
+	.lp-site-header nav .lang-item a.hfe-menu-item { display: flex !important; align-items: center; gap: 10px; }
+	.lp-site-header nav .lang-item img, .lp-site-header nav .lang-item .pll-switcher-flag { flex: 0 0 auto; width: 22px !important; height: 15px !important; object-fit: cover; border-radius: 2px; }
+	.lp-site-header nav .lang-item.current-lang a.hfe-menu-item { color: #c02038 !important; font-weight: 600; }
+	.lp-site-header nav .lang-item.current-lang a.hfe-menu-item::after { content: "✓"; margin-left: auto; color: #c02038; font-weight: 700; }
+	.lp-site-header nav .lang-item:first-of-type { border-top: 6px solid #f4f5f7; }
+}
+
+/* Thanh trên cùng: liên hệ bên trái, giờ làm việc + cờ ngôn ngữ sát mép phải (thẳng hàng nút "Ký gửi nhà đất"). */
+.lp-topbar > .e-con-inner { justify-content: space-between; }
+.lp-topbar .lp-topbar__right { flex: 0 0 auto; width: auto; margin-left: auto; justify-content: flex-end; }
+
+/* =================================================================
+   Container co giãn theo màn hình (thay cho khung cố định 1200px).
+   Chỉnh một chỗ: --lp-container-max (độ rộng tối đa) và --lp-gutter (lề hai bên).
+   ================================================================= */
+:root {
+	--lp-container-max: 1440px;
+	--lp-gutter: clamp(16px, 4vw, 48px);
+	--lp-container: min(var(--lp-container-max), calc(100vw - 2 * var(--lp-gutter)));
+}
+/* Khung "boxed" của Elementor (header, các khối trang, footer). */
+.e-con.e-con-boxed > .e-con-inner { max-width: var(--lp-container) !important; }
+.e-con.e-con-boxed { padding-left: 0 !important; padding-right: 0 !important; }
+/* Trang con, tin tức, bài viết, 404 của theme. */
+.lp-page-header__inner,
+.lp-blog,
+.lp-404 { max-width: calc(var(--lp-container) + 32px); padding-left: 16px; padding-right: 16px; }
+
+/* Gạch chân menu đè lên đường viền dưới của header (sát mép tuyệt đối). */
+@media (min-width: 1025px) {
+	.lp-site-header .hfe-nav-menu a.hfe-menu-item::after { bottom: -1px !important; z-index: 2; }
+	.lp-site-header .hfe-nav-menu__layout-horizontal > ul > li { position: relative; }
+}
+
+/* Khối dịch vụ: nút "Tìm hiểu thêm" luôn thẳng hàng dù mô tả dài ngắn khác nhau. */
+.lp-services .e-con > .elementor-widget-button { margin-top: auto; }
+/* Form: ô chọn nền trắng như các ô nhập khác. */
+.fluentform select.ff-el-form-control { background-color: #fff; }
+
+/* =================================================================
+   Nút bấm thống nhất toàn site.
+   ================================================================= */
+.elementor-widget-button .elementor-button,
+.lp-btn,
+.fluentform .ff-btn-submit {
+	letter-spacing: .01em;
+	transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.elementor-widget-button .elementor-button:focus-visible,
+.lp-btn:focus-visible { outline: 3px solid rgba(192, 32, 56, .3); outline-offset: 2px; }
+.lp-btn, .fluentform .ff-btn-submit { border-radius: 8px !important; font-weight: 600 !important; }
+/* Nút liên kết "Xem tất cả →": mũi tên nhích sang khi rê chuột. */
+.elementor-widget-button .elementor-button .elementor-button-icon { transition: transform .2s ease; }
+.elementor-widget-button .elementor-button:hover .elementor-button-icon { transform: translateX(3px); }
+
+/* Mobile/tablet: nút ☰ sát mép phải header. */
+@media (max-width: 1024px) {
+	.lp-site-header .elementor-widget-navigation-menu .hfe-nav-menu { display: flex; flex-wrap: wrap; justify-content: flex-end; }
+	.lp-site-header .hfe-nav-menu__toggle { margin: 0 0 0 auto !important; }
+}
+
+/* Menu mobile (dạng dọc): bỏ gạch chân của menu ngang, mục đang chọn có vạch đỏ bên trái. */
+@media (max-width: 1024px) {
+	.lp-site-header .hfe-nav-menu a.hfe-menu-item::after,
+	.lp-site-header .hfe-nav-menu a.hfe-menu-item::before { display: none !important; }
+	.lp-site-header .hfe-dropdown .menu-item a.hfe-menu-item { padding-left: 16px !important; border-left: 3px solid transparent; }
+	.lp-site-header .hfe-dropdown .current-menu-item > a.hfe-menu-item,
+	.lp-site-header .hfe-dropdown .current-menu-item > .hfe-has-submenu-container > a.hfe-menu-item { border-left-color: #c02038; background: #fdf2f4; }
+}
+
+/* Chữ trên nút: mảnh hơn, to hơn (16px / 500) cho mọi nút trong site. */
+.elementor-widget-button:not(.elementor-widget-button--link) .elementor-button,
+.lp-btn,
+.lp-search .lp-search__submit.lp-btn,
+.fluentform .ff-btn-submit,
+.wp_phongthuy_form button.xemketqua {
+	font-size: var(--lp-fs-base) !important;
+	font-weight: 500 !important;
+	letter-spacing: .005em;
+}
+
+/* =================================================================
+   THANG CỠ CHỮ THỐNG NHẤT – chỉ dùng các biến dưới đây trong toàn site.
+   ================================================================= */
+:root {
+	--lp-fs-3xs: 10px;   /* nhãn trên ảnh (mobile) */
+	--lp-fs-2xs: 12px;   /* nhãn nhỏ trên ảnh */
+	--lp-fs-xs: 13px;    /* thanh trên cùng, chú thích */
+	--lp-fs-sm: 14px;    /* breadcrumb, nhãn form, thông tin phụ */
+	--lp-fs-base: 16px;  /* nội dung, nút, ô nhập, menu */
+	--lp-fs-lg: 18px;    /* chữ dẫn, giá, tiêu đề footer */
+	--lp-fs-xl: 20px;    /* tiêu đề nhỏ trong khối */
+	--lp-fs-h6: 14px;
+	--lp-fs-h5: 16px;
+	--lp-fs-h4: 18px;
+	--lp-fs-h3: clamp(20px, 0.6vw + 16px, 24px);
+	--lp-fs-h2: clamp(26px, 1.1vw + 18px, 34px);
+	--lp-fs-h1: clamp(30px, 1.9vw + 18px, 44px);
+	--lp-fs-display: clamp(34px, 2.9vw + 16px, 56px);
+	--lp-lh-body: 1.6;
+	--lp-lh-heading: 1.25;
+}
+html { font-size: var(--lp-fs-base); }
+body { font-size: var(--lp-fs-base); line-height: var(--lp-lh-body); }
+h1, .h1 { font-size: var(--lp-fs-h1); }
+h2, .h2 { font-size: var(--lp-fs-h2); }
+h3, .h3 { font-size: var(--lp-fs-h3); }
+h4, .h4 { font-size: var(--lp-fs-h4); }
+h5, .h5 { font-size: var(--lp-fs-h5); }
+h6, .h6 { font-size: var(--lp-fs-h6); }
+h1, h2, h3, h4, h5, h6 { line-height: var(--lp-lh-heading); font-weight: 700; }
+h4, h5, h6 { font-weight: 600; }
+.elementor-widget-heading .elementor-heading-title { line-height: var(--lp-lh-heading); }
+.elementor-widget-text-editor, .elementor-icon-list-text, .elementor-icon-box-description { font-size: var(--lp-fs-base); line-height: var(--lp-lh-body); }
+input, select, textarea, button { font-size: var(--lp-fs-base); }
+
+/* Cỡ đặc biệt (dùng qua class trong Elementor). */
+.lp-display .elementor-heading-title { font-size: var(--lp-fs-display) !important; line-height: 1.15; }
+.lp-lead, .lp-lead p { font-size: var(--lp-fs-lg) !important; }
+.lp-footer-title .elementor-heading-title { font-size: var(--lp-fs-lg) !important; }
+.lp-services .elementor-icon-box-title { font-size: var(--lp-fs-xl) !important; letter-spacing: .01em; }
+.lp-topbar .elementor-icon-list-text { font-size: var(--lp-fs-xs) !important; }
+.hfe-nav-menu .menu-item a.hfe-menu-item { font-size: var(--lp-fs-base); }
+
+/* Laptop nhỏ (1025–1279px): thu khoảng cách menu để menu 16px vẫn nằm 1 dòng. */
+@media (min-width: 1025px) and (max-width: 1279px) {
+	.lp-site-header .hfe-nav-menu__layout-horizontal > ul > li > a.hfe-menu-item,
+	.lp-site-header .hfe-nav-menu__layout-horizontal > ul > li > .hfe-has-submenu-container > a.hfe-menu-item { padding-left: 7px !important; padding-right: 7px !important; }
+	.lp-site-header .elementor-widget-button .elementor-button { padding-left: 16px !important; padding-right: 16px !important; }
+	.lp-site-header > .e-con-inner { gap: 12px !important; }
+}
+
+/* Nút "Ký gửi nhà đất" trên header: cùng chiều cao 46px với nút tìm kiếm. */
+.lp-site-header .elementor-widget-button .elementor-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: 46px;
+	padding: 0 24px !important;
+	line-height: 1;
+}
+
+/* ---------------------------------------------------------------- Tin tức: nội dung + sidebar */
+.lp-blog.lp-with-sidebar { display: grid; grid-template-columns: minmax(0, 1fr); gap: 40px; max-width: calc(var(--lp-container) + 32px); }
+@media (min-width: 1025px) { .lp-blog.lp-with-sidebar { grid-template-columns: minmax(0, 1fr) 320px; align-items: start; } }
+.lp-with-sidebar .page-content { grid-template-columns: 1fr !important; }
+@media (min-width: 640px) { .lp-with-sidebar .page-content { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
+.lp-sidebar { display: flex; flex-direction: column; gap: 24px; }
+@media (min-width: 1025px) { .lp-sidebar { position: sticky; top: 100px; } }
+.lp-widget { padding: 20px; border: 1px solid #e6e8ec; border-radius: 12px; background: #fff; }
+.lp-widget__title { margin: 0 0 14px; font-size: var(--lp-fs-lg) !important; font-weight: 700; color: #111827; }
+.lp-blog-search { position: relative; }
+.lp-blog-search input { width: 100%; height: 46px; padding: 0 46px 0 14px; border: 1px solid #d0d5dd; border-radius: 8px; font-size: var(--lp-fs-base); }
+.lp-blog-search input:focus { border-color: #c02038; outline: 0; box-shadow: 0 0 0 3px rgba(192, 32, 56, .12); }
+.lp-blog-search button, .lp-blog-search button:hover, .lp-blog-search button:focus {
+	position: absolute; top: 3px; right: 3px; display: flex; align-items: center; justify-content: center;
+	width: 40px; height: 40px; padding: 0; border: 0 !important; border-radius: 6px; background: #c02038 !important; color: #fff !important; cursor: pointer;
+}
+.lp-blog-search button:hover { background: #9e1a2e !important; }
+.lp-cat-list, .lp-recent { margin: 0; padding: 0; list-style: none; }
+.lp-cat-list li + li { border-top: 1px solid #f0f1f3; }
+.lp-cat-list a { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; color: #374151; text-decoration: none; font-size: var(--lp-fs-base); }
+.lp-cat-list a:hover, .lp-cat-list a[aria-current] { color: #c02038; }
+.lp-cat-list__count { min-width: 28px; padding: 0 8px; border-radius: 999px; background: #f4f5f7; color: #6b7280; font-size: var(--lp-fs-xs); line-height: 24px; text-align: center; }
+.lp-recent li + li { margin-top: 14px; }
+.lp-recent a { display: flex; gap: 12px; align-items: flex-start; text-decoration: none; }
+.lp-recent img { flex: 0 0 72px; width: 72px; height: 56px; object-fit: cover; border-radius: 8px; }
+.lp-recent__title { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; color: #1f2937; font-size: var(--lp-fs-sm); font-weight: 600; line-height: 1.4; }
+.lp-recent a:hover .lp-recent__title { color: #c02038; }
+.lp-recent time { display: block; margin-top: 4px; color: #9ca3af; font-size: var(--lp-fs-xs); }
+.lp-widget--cta { background: #111; border-color: #111; color: #d1d5db; }
+.lp-widget--cta .lp-widget__title { color: #fff; }
+.lp-widget--cta p { margin: 0 0 14px; font-size: var(--lp-fs-sm); }
+.lp-widget--cta .lp-btn { width: 100%; }
+
+/* ---------------------------------------------------------------- Bài viết: mục lục bên trái */
+.lp-article--post { max-width: calc(var(--lp-container) + 32px); }
+.lp-article--post .lp-article__meta { max-width: 820px; margin-left: auto; margin-right: auto; }
+.lp-article__body.has-toc { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; }
+@media (min-width: 1025px) {
+	.lp-article--post .lp-article__meta { margin-left: 312px; max-width: none; }
+	.lp-article__body.has-toc { grid-template-columns: 280px minmax(0, 820px); justify-content: start; gap: 32px; }
+	.lp-article__toc { position: sticky; top: 100px; max-height: calc(100vh - 120px); overflow: auto; }
+}
+.lp-article__body:not(.has-toc) .page-content { max-width: 820px; margin: 0 auto; }
+.lp-toc { padding: 18px 16px 18px 18px; border-radius: 12px; background: #f4f5f7; }
+.lp-toc__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.lp-toc__title { margin: 0; color: #111827; font-size: var(--lp-fs-base); font-weight: 700; }
+.lp-toc__title::before { content: "☰"; margin-right: 8px; color: #6b7280; }
+.lp-toc__toggle, .lp-toc__toggle:hover, .lp-toc__toggle:focus { padding: 0; border: 0 !important; background: none !important; color: #c02038 !important; font-size: var(--lp-fs-sm); cursor: pointer; }
+.lp-toc__list { margin: 0; padding: 0; list-style: none; }
+.lp-toc__item a { display: flex; gap: 8px; padding: 7px 8px 7px 10px; border-left: 2px solid transparent; color: #374151; font-size: var(--lp-fs-sm); line-height: 1.45; text-decoration: none; }
+.lp-toc__item--h2 a { font-weight: 600; color: #1f2937; }
+.lp-toc__item--h3 a { padding-left: 26px; color: #6b7280; }
+.lp-toc__num { flex: 0 0 auto; min-width: 18px; color: #c02038; font-weight: 600; }
+.lp-toc__item a:hover { color: #c02038; }
+.lp-toc__item.is-active a { border-left-color: #c02038; color: #c02038; }
+.lp-article .page-content h2, .lp-article .page-content h3 { scroll-margin-top: 110px; }
+/* Hello giới hạn .site-main ~1140px: cho tin tức / bài viết theo container chung (thẳng lề logo). */
+.site-main.lp-blog.lp-with-sidebar,
+.site-main.lp-article--post { max-width: calc(var(--lp-container) + 32px) !important; width: 100%; }
+
+/* Bài viết: mục lục trái – nội dung giữa – sidebar phải (lấp đủ khung). */
+.lp-article__body.has-sidebar { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; }
+.lp-article__body.has-sidebar .page-content { max-width: none; margin: 0; min-width: 0; }
+@media (min-width: 1025px) {
+	.lp-article__body.has-sidebar { grid-template-columns: minmax(0, 1fr) 300px; }
+	.lp-article__body.has-sidebar.has-toc { grid-template-columns: 260px minmax(0, 1fr) 300px; }
+	.lp-article--post .lp-article__meta { margin-left: 0; max-width: none; }
+}
+@media (min-width: 1025px) {
+	.lp-article--post .lp-article__meta { padding-left: 0; }
+}
+/* Meta (ngày · chuyên mục) thẳng hàng cột nội dung khi có mục lục. */
+@media (min-width: 1025px) { .lp-article--post:has(.has-toc) .lp-article__meta { margin-left: 292px; } }
+.lp-article__body.has-sidebar .page-content img { max-width: 100%; height: auto; }
+/* Mobile: lề bài viết / tin tức bằng lề header (16px). */
+.site-main.lp-article, .site-main.lp-blog { padding-left: 16px !important; padding-right: 16px !important; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Icon nét mảnh cho nút "Ký gửi nhà đất" (header) và nút gửi form. */
+.lp-site-header .elementor-widget-button .elementor-button-text::before,
+.fluentform .ff-btn-submit::before {
+	content: "";
+	display: inline-block;
+	width: 18px; height: 18px;
+	margin-right: 8px;
+	vertical-align: -3px;
+	background: currentColor;
+	-webkit-mask: var(--lp-btn-icon) no-repeat center / contain;
+	mask: var(--lp-btn-icon) no-repeat center / contain;
+}
+.lp-site-header .elementor-widget-button .elementor-button-text::before {
+	--lp-btn-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 11.5 12 4l9 7.5'/%3E%3Cpath d='M5.5 9.5V20h6'/%3E%3Cpath d='M18.5 14v6M15.5 17h6'/%3E%3C/svg%3E");
+}
+.fluentform .ff-btn-submit::before {
+	--lp-btn-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 3 10.5 13.5'/%3E%3Cpath d='M21 3 14.5 21l-4-7.5L3 9.5 21 3z'/%3E%3C/svg%3E");
+}
+
+/* Mục lục + sidebar tin tức dính dưới header (không bị che). */
+@media (min-width: 1025px) {
+	.lp-sidebar, .lp-article__toc {
+		top: calc(var(--lp-header-h, 112px) + 20px) !important;
+		max-height: calc(100vh - var(--lp-header-h, 112px) - 40px);
+		overflow-y: auto;
+		overscroll-behavior: contain;
+		scrollbar-width: thin;
+	}
+}
+
+/* =================================================================
+   Menu mobile/tablet: bảng trượt từ phải + nền mờ.
+   ================================================================= */
+@media (max-width: 1024px) {
+	.lp-site-header nav.hfe-nav-menu__layout-horizontal {
+		position: fixed !important;
+		top: 0 !important;
+		right: 0 !important;
+		left: auto !important;
+		bottom: 0;
+		z-index: 100002 !important;
+		display: flex !important;
+		flex-direction: column;
+		width: min(340px, 86vw) !important;
+		height: 100vh;
+		height: 100dvh;
+		margin: 0 !important;
+		padding: 0 !important;
+		overflow-y: auto;
+		background: #fff;
+		box-shadow: -12px 0 40px rgba(0, 0, 0, .18);
+		visibility: hidden;
+		transform: translateX(100%);
+		transition: transform .32s cubic-bezier(.22, .61, .36, 1), visibility 0s linear .32s;
+	}
+	.lp-site-header nav.hfe-nav-menu__layout-horizontal.menu-is-active {
+		visibility: visible;
+		transform: translateX(0);
+		transition: transform .32s cubic-bezier(.22, .61, .36, 1), visibility 0s;
+	}
+	.lp-site-header nav.hfe-nav-menu__layout-horizontal .hfe-nav-menu {
+		display: block !important;
+		position: static !important;
+		opacity: 1 !important;
+		transform: none !important;
+		visibility: visible !important;
+		width: 100% !important;
+		margin: 0;
+		padding: 8px 0 24px;
+		box-shadow: none !important;
+	}
+	.lp-site-header nav.hfe-nav-menu__layout-horizontal .menu-item a.hfe-menu-item,
+	.lp-site-header nav.hfe-nav-menu__layout-horizontal .menu-item a.hfe-sub-menu-item {
+		padding: 14px 24px !important;
+		border-bottom: 1px solid #f0f1f3 !important;
+		font-size: var(--lp-fs-base, 16px);
+		font-weight: 500;
+	}
+	.lp-site-header nav.hfe-nav-menu__layout-horizontal .sub-menu a.hfe-sub-menu-item { padding-left: 40px !important; font-size: var(--lp-fs-sm, 14px); color: #4b5563; }
+	.lp-site-header nav.hfe-nav-menu__layout-horizontal .lang-item a { display: flex; align-items: center; gap: 10px; }
+
+	/* Đầu bảng: logo + nút đóng (thêm bằng JS). */
+	.lp-mnav-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 16px 14px 24px; border-bottom: 1px solid #eef0f3; }
+	.lp-mnav-head img { display: block; width: 140px; height: auto; }
+	.lp-mnav-close, .lp-mnav-close:hover, .lp-mnav-close:focus {
+		display: flex; align-items: center; justify-content: center;
+		width: 40px; height: 40px; padding: 0 !important;
+		border: 0 !important; border-radius: 50% !important;
+		background: #f4f5f7 !important; color: #111827 !important; cursor: pointer;
+	}
+	.lp-mnav-close:hover { background: #c02038 !important; color: #fff !important; }
+
+	/* Nền mờ phía sau. */
+	.lp-mnav-overlay {
+		position: fixed; inset: 0; z-index: 100001;
+		background: rgba(10, 10, 12, .5);
+		opacity: 0; visibility: hidden;
+		transition: opacity .3s ease, visibility 0s linear .3s;
+	}
+	.lp-mnav-overlay.is-open { opacity: 1; visibility: visible; transition: opacity .3s ease, visibility 0s; }
+	html.lp-mnav-lock { overflow: hidden; }
+}
+@media (prefers-reduced-motion: reduce) {
+	.lp-site-header nav.hfe-nav-menu__layout-horizontal, .lp-mnav-overlay { transition: none !important; }
+}
+@media (max-width: 1024px) { .lp-site-header nav.hfe-nav-menu__layout-horizontal { opacity: 1 !important; } }
+/* Ẩn nút liên hệ nổi khi menu mobile đang mở. */
+html.lp-mnav-lock .lp-float, html.lp-mnav-lock .lp-totop { opacity: 0 !important; pointer-events: none; }
+/* Đầu bảng menu mobile chỉ hiện trên mobile/tablet. */
+.lp-mnav-head { display: none; }
+@media (max-width: 1024px) { .lp-mnav-head { display: flex; } }
+
+/* =================================================================
+   Mục lục nổi (bài viết): nút góc dưới trái, bấm xổ danh sách.
+   ================================================================= */
+.lp-toc-fab {
+	position: fixed; left: 16px; bottom: 16px; z-index: 9989;
+	display: flex; flex-direction: column; align-items: flex-start; gap: 10px;
+	pointer-events: none;
+}
+.lp-toc-fab__btn, .lp-toc-fab__btn:hover, .lp-toc-fab__btn:focus {
+	display: inline-flex; align-items: center; gap: 8px;
+	height: 48px; padding: 0 18px 0 14px !important;
+	border: 0 !important; border-radius: 999px !important;
+	background: #111 !important; color: #fff !important;
+	box-shadow: 0 8px 22px rgba(0, 0, 0, .22);
+	font-size: var(--lp-fs-sm, 14px); font-weight: 600; cursor: pointer;
+	opacity: 0; transform: translateY(12px);
+	transition: opacity .25s, transform .25s, background-color .2s;
+	pointer-events: none;
+}
+.lp-toc-fab.is-visible .lp-toc-fab__btn { opacity: 1; transform: none; pointer-events: auto; }
+.lp-toc-fab__btn:hover, .lp-toc-fab.is-open .lp-toc-fab__btn { background: #c02038 !important; }
+.lp-toc-fab__panel {
+	order: -1;
+	width: min(340px, calc(100vw - 32px));
+	max-height: min(60vh, 460px);
+	overflow-y: auto; overscroll-behavior: contain;
+	padding: 16px 12px 12px 16px;
+	border-radius: 14px; background: #fff;
+	box-shadow: 0 18px 50px rgba(0, 0, 0, .22);
+	opacity: 0; visibility: hidden; transform: translateY(10px) scale(.98); transform-origin: bottom left;
+	transition: opacity .22s, transform .22s, visibility 0s linear .22s;
+	pointer-events: auto;
+}
+.lp-toc-fab.is-open .lp-toc-fab__panel { opacity: 1; visibility: visible; transform: none; transition: opacity .22s, transform .22s, visibility 0s; }
+.lp-toc-fab__title { margin: 0 0 8px; color: #111827; font-size: var(--lp-fs-base, 16px); font-weight: 700; }
+.lp-toc-fab__panel .lp-toc__list { margin: 0; }
+@media (prefers-reduced-motion: reduce) { .lp-toc-fab__btn, .lp-toc-fab__panel { transition: none; } }
+html.lp-mnav-lock .lp-toc-fab { display: none; }
+
+/* Khối dính: ẩn thanh cuộn (vẫn cuộn được). */
+.lp-sidebar, .lp-article__toc, .lp-single__aside, .lp-toc-fab__panel { scrollbar-width: none !important; -ms-overflow-style: none; }
+.lp-sidebar::-webkit-scrollbar, .lp-article__toc::-webkit-scrollbar, .lp-single__aside::-webkit-scrollbar, .lp-toc-fab__panel::-webkit-scrollbar { display: none; width: 0; height: 0; }
+/* Desktop: mục lục đầu bài đứng yên; cuộn qua thì dùng nút mục lục nổi. */
+/* Desktop: mục lục dính ở cột trái; nút mục lục nổi chỉ dùng trên mobile/tablet. */
+@media (min-width: 1025px) { .lp-toc-fab { display: none !important; } }
+
+/* =================================================================
+   Mục lục: cùng kiểu thẻ với sidebar (nền trắng, viền mảnh, tiêu đề widget).
+   ================================================================= */
+.lp-toc { padding: 20px; border: 1px solid #e6e8ec; border-radius: 12px; background: #fff; }
+.lp-toc__head { margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid #f0f1f3; }
+.lp-toc__title { font-size: var(--lp-fs-lg, 18px); }
+.lp-toc__title::before { content: none; }
+.lp-toc__toggle { font-weight: 500; }
+.lp-toc__list { counter-reset: none; }
+.lp-toc__item a { position: relative; gap: 10px; padding: 8px 8px 8px 12px; border-left: 0; border-radius: 8px; line-height: 1.45; }
+.lp-toc__item--h2 a { font-weight: 600; color: #1f2937; }
+.lp-toc__item--h3 a { padding-left: 30px; font-weight: 400; color: #6b7280; }
+.lp-toc__num { min-width: 22px; color: #9ca3af; font-weight: 600; font-variant-numeric: tabular-nums; }
+.lp-toc__item a:hover { background: #f6f7f9; color: #111827; }
+.lp-toc__item.is-active a { background: #fdf2f4; color: #c02038; }
+.lp-toc__item.is-active .lp-toc__num { color: #c02038; }
+.lp-toc-fab__panel .lp-toc__item a { border-left: 0; }
+
+/* =================================================================
+   Bình luận
+   ================================================================= */
+.lp-article #comments, .lp-article .comments-area, .lp-article #respond {
+	max-width: none;
+	margin: 40px 0 0;
+}
+@media (min-width: 1025px) {
+	.lp-article--post:has(.has-toc) .comment-respond,
+	.lp-article--post:has(.has-toc) .comments-area { margin-left: 292px; margin-right: 332px; }
+	.lp-article--post:not(:has(.has-toc)) .comment-respond,
+	.lp-article--post:not(:has(.has-toc)) .comments-area { margin-right: 332px; }
+}
+.comment-respond {
+	padding: 28px;
+	border: 1px solid #e6e8ec;
+	border-radius: 14px;
+	background: #fff;
+}
+@media (max-width: 599px) { .comment-respond { padding: 20px 16px; } }
+.comment-reply-title { margin: 0 0 6px; font-size: var(--lp-fs-h3) !important; font-weight: 700; color: #111827; }
+.comment-reply-title small a { margin-left: 8px; font-size: var(--lp-fs-sm); font-weight: 500; }
+.comment-respond .logged-in-as, .comment-respond .comment-notes { margin: 0 0 18px; color: #6b7280; font-size: var(--lp-fs-sm); }
+.comment-respond .logged-in-as a, .comment-respond .comment-notes a { color: #c02038; text-decoration: none; }
+.comment-respond .logged-in-as a:hover { text-decoration: underline; }
+.comment-form { display: grid; grid-template-columns: 1fr; gap: 0 16px; }
+@media (min-width: 700px) {
+	.comment-form { grid-template-columns: 1fr 1fr; }
+	.comment-form > .comment-form-comment, .comment-form > .comment-form-url, .comment-form > .comment-form-cookies-consent,
+	.comment-form > .form-submit, .comment-form > .logged-in-as, .comment-form > .comment-notes { grid-column: 1 / -1; }
+}
+.comment-form p { margin: 0 0 16px; }
+.comment-form label { display: block; margin-bottom: 6px; color: #374151; font-size: var(--lp-fs-sm); font-weight: 500; }
+.comment-form .required { color: #c02038; }
+.comment-form input[type="text"], .comment-form input[type="email"], .comment-form input[type="url"], .comment-form textarea {
+	width: 100%; padding: 12px 14px;
+	border: 1px solid #d0d5dd; border-radius: 8px; background: #fff;
+	font-size: var(--lp-fs-base); color: #111827;
+	transition: border-color .2s, box-shadow .2s;
+}
+.comment-form textarea { min-height: 140px; resize: vertical; }
+.comment-form input:focus, .comment-form textarea:focus { border-color: #c02038; outline: 0; box-shadow: 0 0 0 3px rgba(192, 32, 56, .12); }
+.comment-form-cookies-consent { display: flex; align-items: flex-start; gap: 8px; }
+.comment-form-cookies-consent label { margin: 0; font-weight: 400; color: #6b7280; }
+.comment-form .form-submit { margin: 4px 0 0; }
+.comment-form .submit, .comment-form input[type="submit"] {
+	display: inline-flex; align-items: center; justify-content: center;
+	height: 46px; padding: 0 26px;
+	border: 1px solid #c02038 !important; border-radius: 8px !important;
+	background: #c02038 !important; color: #fff !important;
+	font-size: var(--lp-fs-base) !important; font-weight: 500; cursor: pointer;
+	transition: background-color .2s;
+}
+.comment-form .submit:hover { background: #9e1a2e !important; border-color: #9e1a2e !important; }
+/* Danh sách bình luận */
+.comments-area .comments-title { margin: 0 0 18px; font-size: var(--lp-fs-h3) !important; }
+.comment-list { margin: 0 0 28px; padding: 0; list-style: none; }
+.comment-list .comment { margin: 0 0 14px; }
+.comment-list .comment-body { padding: 18px; border: 1px solid #eef0f3; border-radius: 12px; background: #fafafa; }
+.comment-list .children { margin: 14px 0 0 24px; padding: 0; list-style: none; }
+.comment-author .avatar { float: left; margin-right: 12px; border-radius: 50%; }
+.comment-author .fn { font-weight: 600; font-style: normal; color: #111827; }
+.comment-metadata { margin: 2px 0 10px; font-size: var(--lp-fs-xs); }
+.comment-metadata a { color: #9ca3af; text-decoration: none; }
+.comment-content { clear: both; color: #374151; }
+.comment-list .reply a { color: #c02038; font-size: var(--lp-fs-sm); font-weight: 600; text-decoration: none; }
+
+/* Tiêu đề trong nội dung bài viết: cỡ đọc (H2 ~ H3 trang, H3 ~ 20px). */
+.lp-article .page-content h2 { margin: 32px 0 12px; font-size: var(--lp-fs-h3) !important; line-height: 1.3; }
+.lp-article .page-content h3 { margin: 24px 0 10px; font-size: var(--lp-fs-xl) !important; line-height: 1.35; }
+.lp-article .page-content h4 { font-size: var(--lp-fs-lg) !important; }
+.lp-article .page-content .comment-respond h2, .lp-article .page-content .comments-title { margin-top: 0; }
+
+@media (max-width: 1024px) {
+	.lp-site-header nav .lang-item a.hfe-menu-item { justify-content: flex-start !important; text-align: left; }
+	.lp-site-header nav .lang-item a.hfe-menu-item::after { display: none !important; }
+}
+
+/* =================================================================
+   Hiệu ứng khi cuộn (toàn trang). Chỉ chạy khi có JS và người dùng
+   không bật "giảm chuyển động".
+   ================================================================= */
+html.lp-reveal-on [data-lp-reveal] {
+	opacity: 0;
+	transform: translate3d(0, 28px, 0);
+	transition: opacity .7s cubic-bezier(.22, .61, .36, 1), transform .7s cubic-bezier(.22, .61, .36, 1);
+	transition-delay: var(--lp-delay, 0ms);
+	will-change: opacity, transform;
+}
+html.lp-reveal-on [data-lp-reveal="fade"] { transform: none; }
+html.lp-reveal-on [data-lp-reveal="zoom"] { transform: scale(.96); }
+html.lp-reveal-on [data-lp-reveal].is-in { opacity: 1; transform: none; will-change: auto; }
+@media (prefers-reduced-motion: reduce) {
+	html.lp-reveal-on [data-lp-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+/* Nút mục lục nổi: chỉ icon tròn 48px (tên vẫn có cho trình đọc màn hình). */
+.lp-toc-fab__btn, .lp-toc-fab__btn:hover, .lp-toc-fab__btn:focus {
+	width: 48px; height: 48px; padding: 0 !important;
+	justify-content: center; gap: 0;
+	border-radius: 50% !important; box-shadow: 0 6px 18px rgba(0, 0, 0, .22);
+}
+.lp-toc-fab__btn:focus:not(:focus-visible) { outline: none; }
+.lp-toc-fab__btn:focus-visible { outline: 2px solid #c02038; outline-offset: 3px; }
+.lp-toc-fab__btn svg { width: 20px; height: 20px; }
+.lp-toc-fab__btn span {
+	position: absolute !important; width: 1px; height: 1px; overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px); white-space: nowrap;
+}
+
+/* Nút trong khung rộng: dài vừa nội dung, không kéo hết chiều ngang. */
+.fluentform .ff-btn-submit { width: auto !important; min-width: 220px; padding-left: 28px !important; padding-right: 28px !important; }
+.lp-contact--inline .lp-contact__actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.lp-contact--inline .lp-contact__actions .lp-btn { width: auto; min-width: 200px; }
+/* Khung hẹp & điện thoại: giữ nút rộng hết khung. */
+.lp-single__aside .fluentform .ff-btn-submit,
+.lp-sidebar .fluentform .ff-btn-submit { width: 100% !important; }
+@media (max-width: 599px) {
+	.fluentform .ff-btn-submit { width: 100% !important; }
+	.lp-contact--inline .lp-contact__actions .lp-btn { flex: 1 1 100%; }
+}
+
+/* Logo footer: âm bản trắng trên nền tối. */
+.lp-footer-logo img { filter: brightness(0) invert(1); }
+
+/* =================================================================
+   Kiểu nút: góc bo 4px, viền sáng mảnh bên trong (nút nền màu).
+   ================================================================= */
+.elementor-widget-button .elementor-button,
+.lp-btn, .lp-btn.lp-btn,
+.fluentform .ff-btn-submit,
+.comment-form .submit,
+.wp_phongthuy_form button.xemketqua { border-radius: 4px !important; }
+.lp-site-header .elementor-widget-button .elementor-button,
+a.lp-btn.lp-btn:not(.lp-btn--outline):not(.lp-btn--ghost),
+button.lp-btn.lp-btn,
+.lp-search .lp-search__submit.lp-btn,
+.fluentform .ff-btn-submit,
+.comment-form .submit,
+.wp_phongthuy_form button.xemketqua,
+.lp-float__phone { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .55) !important; }
+.lp-site-header .elementor-widget-button .elementor-button { height: 42px; padding: 0 22px !important; }
+
+/* Tin tức (có sidebar): 3 tin / hàng trên máy tính, 2 tin / hàng trên tablet & điện thoại. */
+.lp-with-sidebar .page-content { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 24px; }
+@media (min-width: 1025px) { .lp-with-sidebar .page-content { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 24px; } }
+@media (min-width: 1025px) and (max-width: 1279px) { .lp-with-sidebar .page-content { gap: 16px; } .lp-with-sidebar .lp-post-card__title { font-size: var(--lp-fs-base); } }
+.lp-with-sidebar .lp-post-card__title { font-size: var(--lp-fs-base); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.lp-with-sidebar .lp-post-card__excerpt { font-size: var(--lp-fs-sm); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+@media (max-width: 767px) {
+	.lp-with-sidebar .page-content { gap: 12px; }
+	.lp-with-sidebar .lp-post-card { border-radius: 8px; }
+	.lp-with-sidebar .lp-post-card__body { padding: 10px 10px 12px; gap: 4px; }
+	.lp-with-sidebar .lp-post-card__date { font-size: var(--lp-fs-3xs, 10px); }
+	.lp-with-sidebar .lp-post-card__title { font-size: var(--lp-fs-sm); line-height: 1.4; }
+	.lp-with-sidebar .lp-post-card__excerpt { display: none; }
+}
